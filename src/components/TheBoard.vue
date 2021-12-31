@@ -26,21 +26,11 @@ import BoardObstacle from "./BoardObstacle.vue";
 
 export default {
   name: "TheBoard",
-  data() {
-    return {
-      obstacles: [
-        { x: 23, y: 18 },
-        { x: 35, y: 3 },
-      ],
-      roverPosition: { x: 1, y: 10 },
-      roverOrientation: "down",
-    };
-  },
   props: {
-    size: {
-      type: Number,
-      default: 40,
-    },
+    size: Number,
+    roverPosition: Object,
+    roverOrientation: String,
+    obstaclePositions: Array,
   },
   components: {
     BoardTile,
@@ -50,7 +40,7 @@ export default {
   computed: {
     stringObstacles: function () {
       let result = [];
-      this.obstacles.forEach((obstacle) => {
+      this.obstaclePositions.forEach((obstacle) => {
         result.push(obstacle.x + "-" + obstacle.y);
       });
       return result;

@@ -1,4 +1,17 @@
-import { Helpers } from './helpers';
+import Helpers from './helpers';
+
+enum Orientation {
+  Up = 'up',
+  Down = 'down',
+  Left = 'left',
+  Right = 'right',
+}
+
+enum Level {
+  Easy = 10,
+  Medium = 20,
+  Hard = 30,
+}
 
 export default class Board {
   size: number = 40;
@@ -11,7 +24,7 @@ export default class Board {
     this.roverOrientation = this.pointRover(this.size, this.roverPosition);
     this.obstaclePositions = this.placeObstacles(
       this.size,
-      Level.medium,
+      Level.Medium,
       this.roverPosition
     );
   }
@@ -25,29 +38,29 @@ export default class Board {
     roverPosition: Coordinate
   ): Orientation {
     let orientations = [
-      Orientation.up,
-      Orientation.down,
-      Orientation.left,
-      Orientation.right,
+      Orientation.Up,
+      Orientation.Down,
+      Orientation.Left,
+      Orientation.Right,
     ];
 
     if (roverPosition.y === 1) {
-      let index = orientations.indexOf(Orientation.up);
+      let index = orientations.indexOf(Orientation.Up);
       orientations.splice(index, 0);
     }
 
     if (roverPosition.y === boardSize) {
-      let index = orientations.indexOf(Orientation.down);
+      let index = orientations.indexOf(Orientation.Down);
       orientations.splice(index, 0);
     }
 
     if (roverPosition.x === 1) {
-      let index = orientations.indexOf(Orientation.left);
+      let index = orientations.indexOf(Orientation.Left);
       orientations.splice(index, 0);
     }
 
     if (roverPosition.x === boardSize) {
-      let index = orientations.indexOf(Orientation.right);
+      let index = orientations.indexOf(Orientation.Right);
       orientations.splice(index, 0);
     }
 
@@ -59,19 +72,7 @@ export default class Board {
     difficulty: Level,
     roverPosition: Coordinate
   ): Coordinate[] {
-    let count = 0;
-    switch (difficulty) {
-      case Level.easy:
-        count = 10;
-        break;
-      case Level.medium:
-        count = 20;
-        break;
-      case Level.hard:
-        count = 30;
-        break;
-    }
-
+    let count = difficulty;
     let obstacles: Coordinate[] = [];
     while (count > 0) {
       let coordinate = Helpers.getRandomCoordinate(boardSize);
