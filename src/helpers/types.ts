@@ -4,7 +4,8 @@ export interface Coordinate {
 }
 
 export interface Board {
-  size: Number;
+  size: number;
+  difficulty: Level;
   roverPosition: Coordinate;
   roverOrientation: Orientation;
   obstaclePositions: Coordinate[];
