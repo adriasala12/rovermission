@@ -62,7 +62,7 @@
 
 <script>
 import TheBoard from "./components/TheBoard.vue";
-import Board from "./helpers/board.ts";
+import Helpers from "./helpers/board.ts";
 
 export default {
   name: "App",
@@ -71,7 +71,7 @@ export default {
   },
   data() {
     return {
-      board: Board,
+      board: Object,
       commands: "",
       isMoving: false,
       startPoint: Object,
@@ -83,7 +83,7 @@ export default {
   },
   methods: {
     newGame: function () {
-      this.board = new Board();
+      this.board = Helpers.newBoard();
     },
     inputValidator: function (e) {
       let char = String.fromCharCode(e.keyCode);
@@ -107,13 +107,13 @@ export default {
           await this.timeout(500);
         }
         if (this.isObstacle()) {
-          console.log("CRASHHHHHHH");
           this.board.roverPosition.x = this.startPoint.x;
           this.board.roverPosition.y = this.startPoint.y;
           this.board.roverOrientation = this.startOrientation;
           alert(
             "Caution! There's an obstacle in this path. Please, try some other way."
           );
+          break;
         } else {
           this.moveForward();
           await this.timeout(500);
