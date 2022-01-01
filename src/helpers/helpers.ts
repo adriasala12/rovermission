@@ -13,6 +13,7 @@ export default class Helpers {
     let roverPosition = this.getRandomCoordinate(size);
     return {
       size: size,
+      difficulty: difficulty,
       roverPosition: roverPosition,
       roverOrientation: this.getRandomOrientation(),
       obstaclePositions: this.placeObstacles(size, difficulty, roverPosition),

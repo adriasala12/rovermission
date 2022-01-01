@@ -62,7 +62,7 @@
 
 <script>
 import TheBoard from "./components/TheBoard.vue";
-import Helpers from "./helpers/board.ts";
+import Helpers from "./helpers/helpers.ts";
 
 export default {
   name: "App",
