@@ -1,5 +1,5 @@
 import Helpers from '@/helpers/helpers';
-import { Level, Orientation } from '@/helpers/types';
+import { Level } from '@/helpers/types';
 
 describe("Unit tests for Helpers's methods", () => {
   it('new board has all member properties set', () => {

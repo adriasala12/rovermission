@@ -87,8 +87,7 @@ export default {
     },
     inputValidator: function (e) {
       let char = String.fromCharCode(e.keyCode);
-      let regexp = new RegExp("[FfLlRr]");
-      if (regexp.test(char)) {
+      if (/[FfLlRr]/.test(char)) {
         return true;
       } else {
         e.preventDefault();

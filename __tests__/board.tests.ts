@@ -1,5 +1,4 @@
 import { mount } from '@vue/test-utils';
-import App from '@/App.vue';
 import TheBoard from '@/components/TheBoard.vue';
 import { Orientation } from '@/helpers/types';
 import BoardObstacle from '@/components/BoardObstacle.vue';
