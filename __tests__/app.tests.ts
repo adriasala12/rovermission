@@ -28,8 +28,11 @@ describe('Unit tests for App component', () => {
     wrapper.setData(changeMockData);
     await (wrapper.vm as any).move();
     Vue.nextTick(() => {
-      console.log(wrapper.vm.$data.board.roverPosition.x);
-      console.log(wrapper.vm.$data.board.roverPosition.y);
+      expect(
+        Math.abs(
+          wrapper.vm.$data.board.roverPosition.y - changeMockData.startPoint.y
+        )
+      ).toBe(2);
     });
   });
 });

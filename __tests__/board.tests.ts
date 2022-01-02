@@ -44,22 +44,4 @@ describe('Unit tests for TheBoard component', () => {
       expect(count).toBe(theBoardProps.size ** 2);
     });
   });
-
-  it('test move forward', async () => {
-    let mockData = theBoardProps;
-    mockData.obstaclePositions = [];
-    const wrapper = mount(App);
-    wrapper.setData({
-      board: mockData,
-      commands: 'ff',
-      isMoving: false,
-      startPoint: { x: 0, y: 0 },
-      startOrientation: '',
-    });
-    await (wrapper.vm as any).move();
-    Vue.nextTick(() => {
-      console.log(wrapper.vm.$data.board.roverPosition.x);
-      console.log(wrapper.vm.$data.board.roverPosition.y);
-    });
-  });
 });
