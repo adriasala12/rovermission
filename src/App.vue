@@ -1,13 +1,13 @@
 <template>
-  <div>
+  <div class="flex flex-row flex-wrap lg:flex-nowrap">
     <TheBoard
-      class="mt-2"
+      class="m-2 mx-auto"
       :size="board.size"
       :roverPosition="board.roverPosition"
       :roverOrientation="board.roverOrientation"
       :obstaclePositions="board.obstaclePositions"
     />
-    <div class="my-5 flex flex-col gap-4">
+    <div class="my-4 flex flex-col gap-4 mx-auto md:my-auto">
       <span class="bg-yellow-500 font-bold mx-auto p-4 text-sm text-yellow-800"
         >Use your keyboard to control the Rover:<br />
         - F: Move Forward<br />
@@ -18,9 +18,9 @@
         type="text"
         placeholder="ENTER COMMANDS"
         class="
+          w-full
           py-2
           px-2
-          w-2/6
           mx-auto
           rounded-lg
           uppercase
@@ -37,6 +37,7 @@
       />
       <button
         class="
+          w-3/4
           bg-white
           transition
           duration-150
@@ -47,7 +48,6 @@
           text-gray-800
           px-3
           py-2
-          w-1/4
           mx-auto
           font-bold
           hover:bg-gray-100
@@ -63,6 +63,7 @@
       </button>
       <button
         class="
+          w-3/4
           bg-white
           transition
           duration-150
@@ -73,7 +74,6 @@
           text-gray-800
           px-3
           py-2
-          w-1/4
           mx-auto
           font-bold
           hover:bg-gray-100
