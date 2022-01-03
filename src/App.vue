@@ -101,7 +101,7 @@ export default {
 
       let instructions = this.commands.split("");
       for (let i in instructions) {
-        if (instructions[i] !== "f" || instructions[i] !== "F") {
+        if (instructions[i].toLowerCase() !== "f") {
           this.changeOrientation(instructions[i]);
           await this.timeout(500);
         }
