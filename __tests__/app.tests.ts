@@ -35,4 +35,39 @@ describe('Unit tests for App component', () => {
       ).toBe(2);
     });
   });
+
+  it('test move right and left + changeOrientation', async () => {
+    let changeMockData = mockData;
+    changeMockData.board.obstaclePositions = [];
+    changeMockData.commands = 'rl';
+    const wrapper = mount(App);
+    wrapper.setData(changeMockData);
+    await (wrapper.vm as any).move();
+    Vue.nextTick(() => {
+      expect(wrapper.vm.$data.board.roverPosition.y).toBe(
+        changeMockData.startPoint.y - 1
+      );
+      expect(wrapper.vm.$data.board.roverPosition.x).toBe(
+        changeMockData.startPoint.x + 1
+      );
+    });
+  });
+
+  it('test obstacle detection', async () => {
+    let changeMockData = mockData;
+    changeMockData.board.obstaclePositions = [{ x: 10, y: 19 }];
+    const wrapper = mount(App);
+    wrapper.setData(changeMockData);
+
+    expect((wrapper.vm as any).isObstacle()).toBeTruthy();
+  });
+
+  it('test out of board detection', async () => {
+    let changeMockData = mockData;
+    changeMockData.board.roverPosition = { x: 1, y: 1 };
+    const wrapper = mount(App);
+    wrapper.setData(changeMockData);
+
+    expect((wrapper.vm as any).isObstacle()).toBeTruthy();
+  });
 });
