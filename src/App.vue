@@ -7,8 +7,8 @@
       :roverOrientation="board.roverOrientation"
       :obstaclePositions="board.obstaclePositions"
     />
-    <div class="my-5 flex flex-col gap-6">
-      <span class="bg-yellow-500 font-bold mx-auto p-4 text-yellow-800"
+    <div class="my-5 flex flex-col gap-4">
+      <span class="bg-yellow-500 font-bold mx-auto p-4 text-sm text-yellow-800"
         >Use your keyboard to control the Rover:<br />
         - F: Move Forward<br />
         - R: Move Right<br />
@@ -38,12 +38,23 @@
       <button
         class="
           bg-white
-          py-2
+          transition
+          duration-150
+          ease-in-out
+          hover:border-gray-900 hover:text-gray-900
           rounded-lg
+          border-2 border-yellow-800
+          text-gray-800
+          px-3
+          py-2
           w-1/4
           mx-auto
           font-bold
-          disabled:cursor-not-allowed disabled:bg-gray-500
+          hover:bg-gray-100
+          focus:outline-none
+          focus:ring-2
+          focus:ring-offset-2
+          focus:ring-gray-800
         "
         @click="move"
         :disabled="isMoving"
@@ -51,7 +62,26 @@
         Send Commands
       </button>
       <button
-        class="bg-white py-2 rounded-lg w-1/4 mx-auto font-bold"
+        class="
+          bg-white
+          transition
+          duration-150
+          ease-in-out
+          hover:border-gray-900 hover:text-gray-900
+          rounded-lg
+          border-2 border-yellow-800
+          text-gray-800
+          px-3
+          py-2
+          w-1/4
+          mx-auto
+          font-bold
+          hover:bg-gray-100
+          focus:outline-none
+          focus:ring-2
+          focus:ring-offset-2
+          focus:ring-gray-800
+        "
         @click="newGame"
       >
         New Game
